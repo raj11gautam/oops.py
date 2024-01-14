@@ -1,0 +1,54 @@
+#-------------------------------------------Bike_By_Using_Pin--------------------------------------------------
+class Bike:
+    def __init__(self):
+        self.s=100
+        self.pin=""
+        self.menu()
+    def set_pin(self):
+        self.pin=input("entre the pin: ")
+        print("Pin created...")
+    def RentBike(self):
+        q=int(input("enter the quantity: "))
+        if q>self.s:
+            print("Qutof Stock:.")
+        elif q<=0:
+            print("Please Enter Valid Quantity..")
+        else:
+            self.s=self.s-q
+            print("Stock after Renting:",self.s)
+    def Rent_Hour(self):
+        H=int(input("enter the hour: "))
+        self.H=H
+    def Price_For_Rent(self):
+        if self.H<=0:
+            print("Enter the (positive No.) or Greater then zero...")
+        else:
+            self.Price=self.H*100
+            print(self.Price)
+    def menu(self):
+        while True:
+            print("""
+            1.Set pin.
+            2.enter Quantity.
+            3.show Stock
+            4.Enter time.
+            5.Price for Rent""")
+            User_choice=int(input("Enter the choice: "))
+            if User_choice==1:
+                self.set_pin()
+            elif User_choice==2:
+                temp=input("enter the pin: ")
+                if temp==self.pin:
+                    self.RentBike()
+                else:
+                    print("enter valid pin:")
+            elif User_choice==3:
+                print(self.s)
+            elif User_choice==4:
+                self.Rent_Hour()
+            elif User_choice==5:
+                self.Price_For_Rent()
+            elif User_choice==6:
+                break
+if __name__=="__main__":
+    obj=Bike()  
