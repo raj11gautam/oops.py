@@ -1,0 +1,28 @@
+#------------------------------------------------------------Bike Rent----------------------------------------------------------------
+class Bike:
+    def __init__(self,stock):
+        self.stock=stock
+    def StockBike(self):
+        print(f"Total number of bikes",self.stock)
+    def RentOf_Bike(self,quantity):
+        if quantity<=0:
+            print("Please Enter Positive no.:")
+        elif quantity>=self.stock:
+            print("please enter valid no.")
+        else:
+            print(quantity*100)
+            print(self.stock-quantity)
+while True:
+    obj=Bike(100)
+    print("""
+1.display stock
+2.display quantity
+3.Exit""")
+    user_choice=int(input("enter the value : "))
+    if user_choice==1:
+        obj.StockBike()
+    elif user_choice==2:
+        quantity=int(input("entre the bikes: "))
+        obj.RentOf_Bike(quantity)
+    else:
+        break
