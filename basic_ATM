@@ -1,0 +1,61 @@
+# ---------------------------------------ATM--------------------------------------------
+
+class ATM:
+    def __init__(self):
+        self.balance=0
+        self.pin=""
+        self.menu()
+    def Set_Pin(self):
+        self.pin=input("Enter Pin: ")
+        print("Pin Created Successfully...")
+    def Display_Balance(self):
+        temp=input("Enter The Pin: ")
+        if temp==self.pin:
+            print("Balance: ",self.balance)
+        else:
+            print("Check Pin: ")
+    def Add_balance(self):
+        temp=input("Enter Pin: ")
+        if temp==self.pin:
+            New_Amount=int(input("Enter The Amount: "))
+            self.balance+=New_Amount
+            print("Amount Added")
+        else:
+            print("Check Pin")
+    def widraw(self):
+        temp=input("Enter The Pin: ")
+        if temp==self.pin:
+            Amount=int(input("Enter the Amount: "))
+            if Amount>self.balance:
+                print("Insufficient Balance: ")
+            else:
+                self.balance -= Amount
+                print("Withdrawal Successful")
+                print("Remaining Balance:", self.balance)
+        else:
+            print("Check Pin..")
+
+    def menu(self):
+        while True:
+            print("""
+                  1.set pin
+                  2.display balance
+                  3.add balance
+                  4.withdraw balance
+                  5.Exit
+                  """)
+            user_choice=int(input("Enter The Choice: "))
+            if user_choice==1:
+                self.Set_Pin()
+            elif user_choice==2:
+                self.Display_Balance()
+            elif user_choice==3:
+                self.Add_balance()
+            elif user_choice==4:
+                self.widraw()
+            elif user_choice==5:
+                break
+            else:
+                print("Invalide Choice: ")
+if __name__=="__main__":
+    sbi=ATM()  
